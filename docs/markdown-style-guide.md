@@ -1,6 +1,6 @@
 # AlgorithmNote Markdown 编写规范
 
-本规范适用于本仓库的算法学习笔记，重点保证 GitHub 网页端和移动端正确显示数学公式与示意图。
+本规范适用于本仓库的算法学习笔记，保证 GitHub 网页端和移动端正确显示数学公式与示意图。
 
 ## 1. 数学公式
 
@@ -57,10 +57,3 @@ i+j=\left\lfloor\frac{m+n+1}{2}\right\rfloor
 3. 检查上标、下标及 `aligned` 的括号匹配。
 4. 检查 SVG 文件已提交且相对路径正确。
 5. 在 GitHub 的实际 Markdown 页面检查渲染，尤其关注移动端的公式错误提示及图片显示。
-
-## 4. 已验证案例
-
-- 笔记：[LeetCode 4. 寻找两个正序数组的中位数](../LeetCode4_寻找两个正序数组的中位数.md)
-- 修复提交：[06e808b](https://github.com/ZYTech97/AlgorithmNote/commit/06e808bccafaec594fcdb9b818fd1f4a58606c0a)
-- 现象：部分公式显示原始 `$`、出现 `Missing open brace for superscript`，其他公式正常。
-- 解决：将行内公式统一转换为 GitHub 专用的美元符号加反引号形式，将独立公式转换为 `math` 代码块，并显式书写上标花括号。用户已确认问题解决。
