@@ -37,8 +37,8 @@ $$
 
 $$
 \begin{aligned}
-A(i):&\quad nums1[i-1]\le nums2[j]\\
-B(i):&\quad nums2[j-1]\le nums1[i]
+A(i):&\quad \mathrm{nums1}[i-1]\le \mathrm{nums2}[j]\\
+B(i):&\quad \mathrm{nums2}[j-1]\le \mathrm{nums1}[i]
 \end{aligned}
 $$
 
@@ -77,7 +77,7 @@ $$
 考虑条件：
 
 $$
-A(i):\quad nums1[i-1]\le nums2[j]
+A(i):\quad \mathrm{nums1}[i-1]\le \mathrm{nums2}[j]
 $$
 
 条件 A 具有以下两个性质：
@@ -96,7 +96,7 @@ $$
 - 若 A 成立，记录候选结果，继续向右搜索。
 - 若 A 不成立，向左搜索。
 
-最终找到满足 A 的最大位置 $i^*$。该位置也必然满足条件 B，其证明留在第四节。
+最终找到满足 A 的最大位置 $i^{*}$。该位置也必然满足条件 B，其证明留在第四节。
 
 ## 三、算法设计与实现
 
@@ -156,20 +156,20 @@ class Solution:
 证明算法能够找到满足条件 $A(i)$ 的最大划分位置：
 
 $$
-i^*=\max\{i\in[0,m]\mid A(i)\}
+i^{*}=\max\{i\in[0,m]\mid A(i)\}
 $$
 
-由第二节可知，$A(i)$ 具有单调性：随着 $i$ 增大，条件 A 由成立变为不成立，且 $A(0)$ 必然成立，因此 $i^*$ 一定存在。
+由第二节可知，$A(i)$ 具有单调性：随着 $i$ 增大，条件 A 由成立变为不成立，且 $A(0)$ 必然成立，因此 $i^{*}$ 一定存在。
 
 **1. 循环不变量**
 
 在每次 `while` 循环开始时，始终满足：
 
 $$
-\boxed{\begin{aligned}
+\begin{aligned}
 &\forall i\in[0,left),\quad A(i)=\mathrm{True}\\
 &\forall i\in(right,m],\quad A(i)=\mathrm{False}
-\end{aligned}}
+\end{aligned}
 $$
 
 即：`left` 左侧的位置均满足 A，`right` 右侧的位置均不满足 A，尚未确定的范围为 `[left, right]`。
@@ -198,107 +198,107 @@ $$
 由于搜索区间不断缩小，循环最终在 `left > right` 时终止，此时 $left=right+1$。结合循环不变量可知：
 
 $$
-\boxed{i^*=right=left-1}
+\boxed{i^{*}=right=left-1}
 $$
 
-还需证明代码一定访问 $i^*$，并正确保留该位置的候选结果。
+还需证明代码一定访问 $i^{*}$，并正确保留该位置的候选结果。
 
-**为什么一定访问 $i^*$？** 初始搜索区间包含 $i^*$。若 $mid<i^*$，则 A 成立，更新后仍有 $left\le i^*$；若 $mid>i^*$，则 A 不成立，更新后仍有 $right\ge i^*$。因此，在访问 $i^*$ 之前，它始终位于搜索区间内。由于区间严格缩小，算法必然访问 $i^*$。
+**为什么一定访问 $i^{*}$？** 初始搜索区间包含 $i^{*}$。若 $mid<i^{*}$，则 A 成立，更新后仍有 $left\le i^{*}$；若 $mid>i^{*}$，则 A 不成立，更新后仍有 $right\ge i^{*}$。因此，在访问 $i^{*}$ 之前，它始终位于搜索区间内。由于区间严格缩小，算法必然访问 $i^{*}$。
 
-**为什么记录不会被覆盖？** 当 $mid=i^*$ 时，A 成立，算法记录该位置的 `median1` 和 `median2`，并令 $left=i^*+1$。此后访问的位置均大于 $i^*$，根据其最大性，条件 A 均不成立，因而不会再次更新候选结果。
+**为什么记录不会被覆盖？** 当 $mid=i^{*}$ 时，A 成立，算法记录该位置的 `median1` 和 `median2`，并令 $left=i^{*}+1$。此后访问的位置均大于 $i^{*}$，根据其最大性，条件 A 均不成立，因而不会再次更新候选结果。
 
-综上，**算法一定找到满足 A 的最大位置 $i^*$，且最终保存的候选结果恰好对应 $i^*$**。
+综上，**算法一定找到满足 A 的最大位置 $i^{*}$，且最终保存的候选结果恰好对应 $i^{*}$**。
 
 ### 4.2 最大划分位置满足正确划分条件
 
-由 4.1 节可知，算法能够找到满足条件 A 的最大位置 $i^*$：
+由 4.1 节可知，算法能够找到满足条件 A 的最大位置 $i^{*}$：
 
 $$
-A(i^*):\quad nums1[i^*-1]\le nums2[j^*]
+A(i^{*}):\quad \mathrm{nums1}[i^{*}-1]\le \mathrm{nums2}[j^{*}]
 $$
 
 其中：
 
 $$
-j^*=\left\lfloor\frac{m+n+1}{2}\right\rfloor-i^*
+j^{*}=\left\lfloor\frac{m+n+1}{2}\right\rfloor-i^{*}
 $$
 
 下面证明该位置也必然满足：
 
 $$
-B(i^*):\quad nums2[j^*-1]\le nums1[i^*]
+B(i^{*}):\quad \mathrm{nums2}[j^{*}-1]\le \mathrm{nums1}[i^{*}]
 $$
 
-**采用反证法。** 假设 $B(i^*)$ 不成立，即：
+**采用反证法。** 假设 $B(i^{*})$ 不成立，即：
 
 $$
-nums2[j^*-1]>nums1[i^*]
+\mathrm{nums2}[j^{*}-1]>\mathrm{nums1}[i^{*}]
 $$
 
 分两种情况讨论。
 
-**情况一：$i^*=m$**
+**情况一：$i^{*}=m$**
 
 此时 `nums1` 的右半部分为空，根据边界约定：
 
 $$
-nums1[i^*]=+\infty
+\mathrm{nums1}[i^{*}]=+\infty
 $$
 
-因此 $B(i^*)$ 必然成立，与假设矛盾。
+因此 $B(i^{*})$ 必然成立，与假设矛盾。
 
-**情况二：$i^*<m$**
+**情况二：$i^{*}<m$**
 
-由于 $B(i^*)$ 不成立，且 `nums1[i*]` 是实际数组元素，因此必有 $j^*>0$。
+由于 $B(i^{*})$ 不成立，且 `nums1[i*]` 是实际数组元素，因此必有 $j^{*}>0$。
 
 考虑将划分位置向右移动一位：
 
 $$
-i'=i^*+1,\qquad j'=j^*-1
+i'=i^{*}+1,\qquad j'=j^{*}-1
 $$
 
 由反证假设：
 
 $$
-nums1[i^*]<nums2[j^*-1]=nums2[j']
+\mathrm{nums1}[i^{*}]<\mathrm{nums2}[j^{*}-1]=\mathrm{nums2}[j']
 $$
 
 因此：
 
 $$
-nums1[i'-1]=nums1[i^*]\le nums2[j']
+\mathrm{nums1}[i'-1]=\mathrm{nums1}[i^{*}]\le \mathrm{nums2}[j']
 $$
 
 即：
 
 $$
-\boxed{A(i^*+1)\text{ 成立}}
+\boxed{A(i^{*}+1)\mathrm{True}}
 $$
 
-这与 $i^*$ 是满足 A 的最大位置矛盾。
+这与 $i^{*}$ 是满足 A 的最大位置矛盾。
 
 综上：
 
 $$
-\boxed{A(i^*)\land B(i^*)}
+\boxed{A(i^{*})\land B(i^{*})}
 $$
 
 又因为划分位置始终满足：
 
 $$
-i^*+j^*=\left\lfloor\frac{m+n+1}{2}\right\rfloor
+i^{*}+j^{*}=\left\lfloor\frac{m+n+1}{2}\right\rfloor
 $$
 
-所以，**算法找到的 $i^*$ 必然构成正确划分**：左半部分元素数量符合要求，且左半部分所有元素均不大于右半部分。
+所以，**算法找到的 $i^{*}$ 必然构成正确划分**：左半部分元素数量符合要求，且左半部分所有元素均不大于右半部分。
 
 因此，代码记录的：
 
 $$
-L=\max(nums1[i^*-1],nums2[j^*-1])
+L=\max(\mathrm{nums1}[i^{*}-1],\mathrm{nums2}[j^{*}-1])
 $$
 
 $$
-R=\min(nums1[i^*],nums2[j^*])
+R=\min(\mathrm{nums1}[i^{*}],\mathrm{nums2}[j^{*}])
 $$
 
 分别为左半部分最大值和右半部分最小值。总长度为奇数时，中位数为 $L$；总长度为偶数时，中位数为 $(L+R)/2$。因此算法返回的中位数正确。
