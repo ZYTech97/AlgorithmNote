@@ -29,56 +29,99 @@ T_{\mathrm{avg}}(n)&=\mathbb{E}_{x\sim P_{n}}[T(x)].
 
 设 $`f,g:\mathbb{N}\to\mathbb{R}_{\ge 0}`$，且 $`g(n)>0`$ 对充分大的 $`n`$ 成立。
 
-**大 O（渐近上界）**
+#### 大 O（渐近上界）
 
 ```math
-f\in O(g)\iff
-\exists c>0,\exists n_{0},\forall n\ge n_{0}:\quad
-0\le f(n)\le c g(n).
+f\in O(g)
 ```
 
-**大 Omega（渐近下界）**
-
-```math
-f\in\Omega(g)\iff
-\exists c>0,\exists n_{0},\forall n\ge n_{0}:\quad
-0\le c g(n)\le f(n).
-```
-
-**大 Theta（渐近紧确界）**
+当且仅当存在正常数和阈值，使充分大的所有输入规模都满足：
 
 ```math
 \begin{aligned}
-f\in\Theta(g)\iff {}&
-\exists c_{1},c_{2}>0,\exists n_{0},\forall n\ge n_{0}:\\
-&0\le c_{1}g(n)\le f(n)\le c_{2}g(n).
+&\exists c>0,\ \exists n_{0},\\
+&\forall n\ge n_{0}:\\
+&0\le f(n)\le c g(n).
+\end{aligned}
+```
+
+#### 大 Omega（渐近下界）
+
+```math
+f\in\Omega(g)
+```
+
+当且仅当：
+
+```math
+\begin{aligned}
+&\exists c>0,\ \exists n_{0},\\
+&\forall n\ge n_{0}:\\
+&0\le c g(n)\le f(n).
+\end{aligned}
+```
+
+#### 大 Theta（渐近紧确界）
+
+```math
+f\in\Theta(g)
+```
+
+当且仅当：
+
+```math
+\begin{aligned}
+&\exists c_{1},c_{2}>0,\ \exists n_{0},\\
+&\forall n\ge n_{0}:\\
+&0\le c_{1}g(n)\le f(n)\\
+&\phantom{0}\le c_{2}g(n).
 \end{aligned}
 ```
 
 因而 $`\Theta(g)=O(g)\cap\Omega(g)`$。
 
-**小 o（严格渐近上界）**
+#### 小 o（严格渐近上界）
 
 ```math
-f\in o(g)\iff
-\forall c>0,\exists n_{0},\forall n\ge n_{0}:\quad
-0\le f(n)<c g(n).
+f\in o(g)
 ```
 
-**小 omega（严格渐近下界）**
+当且仅当对于**任意**正常数 $`c`$，都存在相应阈值 $`n_{0}`$，使得：
 
 ```math
-f\in\omega(g)\iff
-\forall c>0,\exists n_{0},\forall n\ge n_{0}:\quad
-0\le c g(n)<f(n).
+\begin{aligned}
+&\forall c>0,\ \exists n_{0},\\
+&\forall n\ge n_{0}:\\
+&0\le f(n)<c g(n).
+\end{aligned}
 ```
 
-对于上述非负函数，后两者分别等价于：
+#### 小 omega（严格渐近下界）
 
 ```math
-\lim_{n\to\infty}\frac{f(n)}{g(n)}=0,\qquad
-\lim_{n\to\infty}\frac{f(n)}{g(n)}=+\infty.
+f\in\omega(g)
 ```
+
+当且仅当：
+
+```math
+\begin{aligned}
+&\forall c>0,\ \exists n_{0},\\
+&\forall n\ge n_{0}:\\
+&0\le c g(n)<f(n).
+\end{aligned}
+```
+
+在上述非负性假设下，后两者分别等价于：
+
+```math
+\lim_{n\to\infty}\frac{f(n)}{g(n)}=0
+```
+
+```math
+\lim_{n\to\infty}\frac{f(n)}{g(n)}=+\infty
+```
+
 
 例如 $`f(n)=3n^{2}+2n+1`$ 满足 $`f\in\Theta(n^{2})`$、$`f\in o(n^{3})`$、$`f\in\omega(n)`$。
 
