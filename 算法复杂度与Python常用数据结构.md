@@ -15,113 +15,84 @@
 
 设输入为 $`x`$、输入规模为 $`|x|=n`$、执行成本为 $`T(x)`$，则：
 
+**最好复杂度：**
 ```math
-\begin{aligned}
-T_{\mathrm{best}}(n)&=\min_{|x|=n}T(x),\\
-T_{\mathrm{worst}}(n)&=\max_{|x|=n}T(x),\\
-T_{\mathrm{avg}}(n)&=\mathbb{E}_{x\sim P_{n}}[T(x)].
-\end{aligned}
+T_{\mathrm{best}}(n)=\min_{|x|=n}T(x)
+```
+
+**最坏复杂度：**
+```math
+T_{\mathrm{worst}}(n)=\max_{|x|=n}T(x)
+```
+
+**平均复杂度：**
+```math
+T_{\mathrm{avg}}(n)=\mathbb{E}_{x\sim P_{n}}[T(x)]
 ```
 
 其中 $`P_{n}`$ 是规模为 $`n`$ 的输入的概率分布。对于长度为 $`m`$ 的操作序列，若任意该长度序列的总成本不超过 $`mA(m)`$，则每次操作的摊还上界为 $`O(A(m))`$。
 
 ### 1.2 渐近复杂度记号
 
-设 $`f,g:\mathbb{N}\to\mathbb{R}_{\ge 0}`$，且 $`g(n)>0`$ 对充分大的 $`n`$ 成立。
+设 $`f,g:\mathbb{N}\to\mathbb{R}_{\ge 0}`$，且对充分大的 $`n`$ 有 $`g(n)>0`$。以下定义均指 $`n`$ 充分大时的渐近关系。
 
 #### 大 O（渐近上界）
 
-```math
-f\in O(g)
-```
-
-当且仅当存在正常数和阈值，使充分大的所有输入规模都满足：
+$`f\in O(g)`$ 当且仅当**存在** $`c>0`$、$`n_{0}\in\mathbb{N}`$，使得对于**所有** $`n\ge n_{0}`$：
 
 ```math
-\begin{aligned}
-&\exists c>0,\ \exists n_{0},\\
-&\forall n\ge n_{0}:\\
-&0\le f(n)\le c g(n).
-\end{aligned}
+0\le f(n)\le c g(n).
 ```
 
 #### 大 Omega（渐近下界）
 
-```math
-f\in\Omega(g)
-```
-
-当且仅当：
+$`f\in\Omega(g)`$ 当且仅当**存在** $`c>0`$、$`n_{0}\in\mathbb{N}`$，使得对于**所有** $`n\ge n_{0}`$：
 
 ```math
-\begin{aligned}
-&\exists c>0,\ \exists n_{0},\\
-&\forall n\ge n_{0}:\\
-&0\le c g(n)\le f(n).
-\end{aligned}
+0\le c g(n)\le f(n).
 ```
 
 #### 大 Theta（渐近紧确界）
 
-```math
-f\in\Theta(g)
-```
-
-当且仅当：
+$`f\in\Theta(g)`$ 当且仅当**存在** $`c_{1},c_{2}>0`$、$`n_{0}\in\mathbb{N}`$，使得对于**所有** $`n\ge n_{0}`$，同时满足：
 
 ```math
-\begin{aligned}
-&\exists c_{1},c_{2}>0,\ \exists n_{0},\\
-&\forall n\ge n_{0}:\\
-&0\le c_{1}g(n)\le f(n)\\
-&\phantom{0}\le c_{2}g(n).
-\end{aligned}
+0\le c_{1}g(n)\le f(n)
 ```
 
-因而 $`\Theta(g)=O(g)\cap\Omega(g)`$。
+```math
+f(n)\le c_{2}g(n).
+```
+
+因此 $`\Theta(g)=O(g)\cap\Omega(g)`$。
 
 #### 小 o（严格渐近上界）
 
-```math
-f\in o(g)
-```
-
-当且仅当对于**任意**正常数 $`c`$，都存在相应阈值 $`n_{0}`$，使得：
+$`f\in o(g)`$ 当且仅当对于**任意** $`c>0`$，都**存在** $`n_{0}\in\mathbb{N}`$，使得对于**所有** $`n\ge n_{0}`$：
 
 ```math
-\begin{aligned}
-&\forall c>0,\ \exists n_{0},\\
-&\forall n\ge n_{0}:\\
-&0\le f(n)<c g(n).
-\end{aligned}
+0\le f(n)<c g(n).
 ```
 
 #### 小 omega（严格渐近下界）
 
-```math
-f\in\omega(g)
-```
-
-当且仅当：
+$`f\in\omega(g)`$ 当且仅当对于**任意** $`c>0`$，都**存在** $`n_{0}\in\mathbb{N}`$，使得对于**所有** $`n\ge n_{0}`$：
 
 ```math
-\begin{aligned}
-&\forall c>0,\ \exists n_{0},\\
-&\forall n\ge n_{0}:\\
-&0\le c g(n)<f(n).
-\end{aligned}
+0\le c g(n)<f(n).
 ```
 
-在上述非负性假设下，后两者分别等价于：
+在上述非负性假设下，小 o 等价于：
 
 ```math
 \lim_{n\to\infty}\frac{f(n)}{g(n)}=0
 ```
 
-```math
-\lim_{n\to\infty}\frac{f(n)}{g(n)}=+\infty
-```
+小 omega 等价于：
 
+```math
+\lim_{n\to\infty}\frac{f(n)}{g(n)}=+\infty.
+```
 
 例如 $`f(n)=3n^{2}+2n+1`$ 满足 $`f\in\Theta(n^{2})`$、$`f\in o(n^{3})`$、$`f\in\omega(n)`$。
 
