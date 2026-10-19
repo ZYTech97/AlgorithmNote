@@ -1,0 +1,127 @@
+# 算法复杂度与 Python 常用数据结构
+
+## 1. 算法复杂度记号
+
+### 1.1 基本概念
+
+算法复杂度描述算法消耗的计算资源随输入规模增长的变化趋势。
+
+- **时间复杂度**：执行的基本操作次数。
+- **空间复杂度**：占用的空间，通常关注辅助空间。
+- **最好复杂度**：固定输入规模下的最小资源消耗。
+- **最坏复杂度**：固定输入规模下的最大资源消耗。
+- **平均复杂度**：给定输入概率分布下的期望资源消耗。
+- **摊还复杂度**：以操作序列的总成本为基础分析单次操作的均摊成本，不依赖概率分布。
+
+设输入为 $`x`$、输入规模为 $`|x|=n`$、执行成本为 $`T(x)`$，则：
+
+```math
+\begin{aligned}
+T_{\mathrm{best}}(n)&=\min_{|x|=n}T(x),\\
+T_{\mathrm{worst}}(n)&=\max_{|x|=n}T(x),\\
+T_{\mathrm{avg}}(n)&=\mathbb{E}_{x\sim P_{n}}[T(x)].
+\end{aligned}
+```
+
+其中 $`P_{n}`$ 是规模为 $`n`$ 的输入的概率分布。对于长度为 $`m`$ 的操作序列，若任意该长度序列的总成本不超过 $`mA(m)`$，则每次操作的摊还上界为 $`O(A(m))`$。
+
+### 1.2 渐近复杂度记号
+
+设 $`f,g:\mathbb{N}\to\mathbb{R}_{\ge 0}`$，且 $`g(n)>0`$ 对充分大的 $`n`$ 成立。
+
+**大 O（渐近上界）**
+
+```math
+f\in O(g)\iff
+\exists c>0,\exists n_{0},\forall n\ge n_{0}:\quad
+0\le f(n)\le c g(n).
+```
+
+**大 Omega（渐近下界）**
+
+```math
+f\in\Omega(g)\iff
+\exists c>0,\exists n_{0},\forall n\ge n_{0}:\quad
+0\le c g(n)\le f(n).
+```
+
+**大 Theta（渐近紧确界）**
+
+```math
+\begin{aligned}
+f\in\Theta(g)\iff {}&
+\exists c_{1},c_{2}>0,\exists n_{0},\forall n\ge n_{0}:\\
+&0\le c_{1}g(n)\le f(n)\le c_{2}g(n).
+\end{aligned}
+```
+
+因而 $`\Theta(g)=O(g)\cap\Omega(g)`$。
+
+**小 o（严格渐近上界）**
+
+```math
+f\in o(g)\iff
+\forall c>0,\exists n_{0},\forall n\ge n_{0}:\quad
+0\le f(n)<c g(n).
+```
+
+**小 omega（严格渐近下界）**
+
+```math
+f\in\omega(g)\iff
+\forall c>0,\exists n_{0},\forall n\ge n_{0}:\quad
+0\le c g(n)<f(n).
+```
+
+对于上述非负函数，后两者分别等价于：
+
+```math
+\lim_{n\to\infty}\frac{f(n)}{g(n)}=0,\qquad
+\lim_{n\to\infty}\frac{f(n)}{g(n)}=+\infty.
+```
+
+例如 $`f(n)=3n^{2}+2n+1`$ 满足 $`f\in\Theta(n^{2})`$、$`f\in o(n^{3})`$、$`f\in\omega(n)`$。
+
+> 严格而言，复杂度记号表示函数集合，因此使用 $`f\in O(g)`$；算法分析中也常简写为 $`f=O(g)`$。
+
+## 2. Python 常用数据结构操作复杂度
+
+以下以 **CPython** 常见实现为准。$`n`$ 为容器大小，$`m`$ 为另一容器大小，$`k`$ 为切片长度；哈希表复杂度默认键的哈希计算和比较为常数时间。表中“平均/摊还”视具体操作分别表示典型平均成本或摊还成本。
+
+| 数据结构 | 操作 | 平均/摊还时间 | 最坏时间 |
+|---|---|---|---|
+| **list** | 索引/修改 `a[i]` | O(1) | O(1) |
+| | 成员判断 `x in a` | O(n) | O(n) |
+| | 末尾追加 `append(x)` | O(1) 摊还 | O(n) |
+| | 末尾删除 `pop()` | O(1) 摊还 | O(n) |
+| | 插入 `insert(i,x)` | O(n) | O(n) |
+| | 指定位置删除 `pop(i)` | O(n) | O(n) |
+| | 按值删除 `remove(x)` | O(n) | O(n) |
+| | 切片 `a[i:j]` | O(k) | O(k) |
+| | 排序 `sort()` | O(n log n) | O(n log n) |
+| **tuple** | 索引 `t[i]` | O(1) | O(1) |
+| | 成员判断 `x in t` | O(n) | O(n) |
+| | 切片 `t[i:j]` | O(k) | O(k) |
+| | 拼接 `a + b` | O(n+m) | O(n+m) |
+| **dict（map）** | 查询 `d[key]` | O(1) | O(n) |
+| | 插入/修改 `d[key] = x` | O(1) 摊还 | O(n) |
+| | 删除 `del d[key]` | O(1) | O(n) |
+| | 成员判断 `key in d` | O(1) | O(n) |
+| | `get(key)` / `pop(key)` | O(1) | O(n) |
+| **set** | 添加 `add(x)` | O(1) 摊还 | O(n) |
+| | 删除 `remove(x)` | O(1) | O(n) |
+| | 成员判断 `x in s` | O(1) | O(n) |
+| | 交集 `s & t` | O(min(n,m)) | O(nm) |
+| | 并集 `s \| t` | O(n+m) | O((n+m)²) |
+| | 差集 `s - t` | O(n) | O(nm) |
+| **deque** | 两端插入 `append/appendleft` | O(1) | O(1) |
+| | 两端删除 `pop/popleft` | O(1) | O(1) |
+| | 两端索引 | O(1) | O(1) |
+| | 中间索引 / 成员查找 | O(n) | O(n) |
+| **heapq** | 建堆 `heapify(a)` | O(n) | O(n) |
+| | 入堆 `heappush()` | O(log n) | O(log n) |
+| | 出堆 `heappop()` | O(log n) | O(log n) |
+| | 读取堆顶 `heap[0]` | O(1) | O(1) |
+| | 替换堆顶 `heapreplace()` | O(log n) | O(log n) |
+
+**注意：** `list` 是动态数组，中间插入/删除需要移动元素；`dict`、`set` 是哈希容器，极端碰撞会退化；`deque` 适合两端操作，`heapq` 适合优先队列。集合运算的最坏界是保守上界，实际成本还受哈希碰撞、扩容影响。表中未计入元素的非恒定哈希、比较、析构成本。
