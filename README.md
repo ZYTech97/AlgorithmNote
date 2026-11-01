@@ -2,7 +2,114 @@
 
 本项目记录算法学习笔记。总结每道题的**核心思路、算法实现与正确性证明**，提炼可复用的算法设计思想。
 
-## 一、算法笔记
+## 一、LeetCode 热题 100
+
+题目按 [LeetCode 热题 100 官方学习计划](https://leetcode.cn/studyplan/top-100-liked/) 的专题顺序排列。已完成笔记：**12/100**；`—` 表示尚无解题笔记。
+
+| 序号 | 题目（原题链接） | 解题笔记 |
+| ---: | --- | --- |
+| 1 | [1. 两数之和](https://leetcode.cn/problems/two-sum/) | — |
+| 2 | [49. 字母异位词分组](https://leetcode.cn/problems/group-anagrams/) | — |
+| 3 | [128. 最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence/) | [查看笔记](LeetCode128_最长连续序列.md) |
+| 4 | [283. 移动零](https://leetcode.cn/problems/move-zeroes/) | [查看笔记](LeetCode283_移动零.md) |
+| 5 | [11. 盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/) | — |
+| 6 | [15. 三数之和](https://leetcode.cn/problems/3sum/) | — |
+| 7 | [42. 接雨水](https://leetcode.cn/problems/trapping-rain-water/) | [查看笔记](LeetCode42_接雨水.md) |
+| 8 | [3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) | [查看笔记](LeetCode3_无重复字符的最长子串.md) |
+| 9 | [438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/) | [查看笔记](LeetCode438_找到字符串中所有字母异位词.md) |
+| 10 | [560. 和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/) | [查看笔记](LeetCode560_和为K的子数组.md) |
+| 11 | [239. 滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum/) | [查看笔记](LeetCode239_滑动窗口最大值.md) |
+| 12 | [76. 最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring/) | [查看笔记](LeetCode76_最小覆盖子串.md) |
+| 13 | [53. 最大子数组和](https://leetcode.cn/problems/maximum-subarray/) | — |
+| 14 | [56. 合并区间](https://leetcode.cn/problems/merge-intervals/) | [查看笔记](LeetCode56_合并区间.md) |
+| 15 | [189. 轮转数组](https://leetcode.cn/problems/rotate-array/) | — |
+| 16 | [238. 除了自身以外数组的乘积](https://leetcode.cn/problems/product-of-array-except-self/) | — |
+| 17 | [41. 缺失的第一个正数](https://leetcode.cn/problems/first-missing-positive/) | [查看笔记](LeetCode41_缺失的第一个正数.md) |
+| 18 | [73. 矩阵置零](https://leetcode.cn/problems/set-matrix-zeroes/) | — |
+| 19 | [54. 螺旋矩阵](https://leetcode.cn/problems/spiral-matrix/) | — |
+| 20 | [48. 旋转图像](https://leetcode.cn/problems/rotate-image/) | — |
+| 21 | [240. 搜索二维矩阵 II](https://leetcode.cn/problems/search-a-2d-matrix-ii/) | — |
+| 22 | [160. 相交链表](https://leetcode.cn/problems/intersection-of-two-linked-lists/) | — |
+| 23 | [206. 反转链表](https://leetcode.cn/problems/reverse-linked-list/) | — |
+| 24 | [234. 回文链表](https://leetcode.cn/problems/palindrome-linked-list/) | — |
+| 25 | [141. 环形链表](https://leetcode.cn/problems/linked-list-cycle/) | — |
+| 26 | [142. 环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii/) | [查看笔记](LeetCode142_环形链表II.md) |
+| 27 | [21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/) | — |
+| 28 | [2. 两数相加](https://leetcode.cn/problems/add-two-numbers/) | — |
+| 29 | [19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) | — |
+| 30 | [24. 两两交换链表中的节点](https://leetcode.cn/problems/swap-nodes-in-pairs/) | — |
+| 31 | [25. K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/) | — |
+| 32 | [138. 随机链表的复制](https://leetcode.cn/problems/copy-list-with-random-pointer/) | — |
+| 33 | [148. 排序链表](https://leetcode.cn/problems/sort-list/) | — |
+| 34 | [23. 合并 K 个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/) | — |
+| 35 | [146. LRU 缓存](https://leetcode.cn/problems/lru-cache/) | — |
+| 36 | [94. 二叉树的中序遍历](https://leetcode.cn/problems/binary-tree-inorder-traversal/) | — |
+| 37 | [104. 二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/) | — |
+| 38 | [226. 翻转二叉树](https://leetcode.cn/problems/invert-binary-tree/) | — |
+| 39 | [101. 对称二叉树](https://leetcode.cn/problems/symmetric-tree/) | — |
+| 40 | [543. 二叉树的直径](https://leetcode.cn/problems/diameter-of-binary-tree/) | — |
+| 41 | [102. 二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal/) | — |
+| 42 | [108. 将有序数组转换为二叉搜索树](https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/) | — |
+| 43 | [98. 验证二叉搜索树](https://leetcode.cn/problems/validate-binary-search-tree/) | — |
+| 44 | [230. 二叉搜索树中第 K 小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-bst/) | — |
+| 45 | [199. 二叉树的右视图](https://leetcode.cn/problems/binary-tree-right-side-view/) | — |
+| 46 | [114. 二叉树展开为链表](https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/) | — |
+| 47 | [105. 从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | — |
+| 48 | [437. 路径总和 III](https://leetcode.cn/problems/path-sum-iii/) | — |
+| 49 | [236. 二叉树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/) | — |
+| 50 | [124. 二叉树中的最大路径和](https://leetcode.cn/problems/binary-tree-maximum-path-sum/) | — |
+| 51 | [200. 岛屿数量](https://leetcode.cn/problems/number-of-islands/) | — |
+| 52 | [994. 腐烂的橘子](https://leetcode.cn/problems/rotting-oranges/) | — |
+| 53 | [207. 课程表](https://leetcode.cn/problems/course-schedule/) | — |
+| 54 | [208. 实现 Trie (前缀树)](https://leetcode.cn/problems/implement-trie-prefix-tree/) | — |
+| 55 | [46. 全排列](https://leetcode.cn/problems/permutations/) | — |
+| 56 | [78. 子集](https://leetcode.cn/problems/subsets/) | — |
+| 57 | [17. 电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/) | — |
+| 58 | [39. 组合总和](https://leetcode.cn/problems/combination-sum/) | — |
+| 59 | [22. 括号生成](https://leetcode.cn/problems/generate-parentheses/) | — |
+| 60 | [79. 单词搜索](https://leetcode.cn/problems/word-search/) | — |
+| 61 | [131. 分割回文串](https://leetcode.cn/problems/palindrome-partitioning/) | — |
+| 62 | [51. N 皇后](https://leetcode.cn/problems/n-queens/) | — |
+| 63 | [35. 搜索插入位置](https://leetcode.cn/problems/search-insert-position/) | — |
+| 64 | [74. 搜索二维矩阵](https://leetcode.cn/problems/search-a-2d-matrix/) | — |
+| 65 | [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/) | — |
+| 66 | [33. 搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array/) | — |
+| 67 | [153. 寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/) | — |
+| 68 | [4. 寻找两个正序数组的中位数](https://leetcode.cn/problems/median-of-two-sorted-arrays/) | [查看笔记](LeetCode4_寻找两个正序数组的中位数.md) |
+| 69 | [20. 有效的括号](https://leetcode.cn/problems/valid-parentheses/) | — |
+| 70 | [155. 最小栈](https://leetcode.cn/problems/min-stack/) | — |
+| 71 | [394. 字符串解码](https://leetcode.cn/problems/decode-string/) | — |
+| 72 | [739. 每日温度](https://leetcode.cn/problems/daily-temperatures/) | — |
+| 73 | [84. 柱状图中最大的矩形](https://leetcode.cn/problems/largest-rectangle-in-histogram/) | — |
+| 74 | [215. 数组中的第K个最大元素](https://leetcode.cn/problems/kth-largest-element-in-an-array/) | — |
+| 75 | [347. 前 K 个高频元素](https://leetcode.cn/problems/top-k-frequent-elements/) | — |
+| 76 | [295. 数据流的中位数](https://leetcode.cn/problems/find-median-from-data-stream/) | — |
+| 77 | [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) | — |
+| 78 | [55. 跳跃游戏](https://leetcode.cn/problems/jump-game/) | — |
+| 79 | [45. 跳跃游戏 II](https://leetcode.cn/problems/jump-game-ii/) | — |
+| 80 | [763. 划分字母区间](https://leetcode.cn/problems/partition-labels/) | — |
+| 81 | [70. 爬楼梯](https://leetcode.cn/problems/climbing-stairs/) | — |
+| 82 | [118. 杨辉三角](https://leetcode.cn/problems/pascals-triangle/) | — |
+| 83 | [198. 打家劫舍](https://leetcode.cn/problems/house-robber/) | — |
+| 84 | [279. 完全平方数](https://leetcode.cn/problems/perfect-squares/) | — |
+| 85 | [322. 零钱兑换](https://leetcode.cn/problems/coin-change/) | — |
+| 86 | [139. 单词拆分](https://leetcode.cn/problems/word-break/) | — |
+| 87 | [300. 最长递增子序列](https://leetcode.cn/problems/longest-increasing-subsequence/) | — |
+| 88 | [152. 乘积最大子数组](https://leetcode.cn/problems/maximum-product-subarray/) | — |
+| 89 | [416. 分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/) | — |
+| 90 | [32. 最长有效括号](https://leetcode.cn/problems/longest-valid-parentheses/) | — |
+| 91 | [62. 不同路径](https://leetcode.cn/problems/unique-paths/) | — |
+| 92 | [64. 最小路径和](https://leetcode.cn/problems/minimum-path-sum/) | — |
+| 93 | [5. 最长回文子串](https://leetcode.cn/problems/longest-palindromic-substring/) | — |
+| 94 | [1143. 最长公共子序列](https://leetcode.cn/problems/longest-common-subsequence/) | — |
+| 95 | [72. 编辑距离](https://leetcode.cn/problems/edit-distance/) | — |
+| 96 | [136. 只出现一次的数字](https://leetcode.cn/problems/single-number/) | — |
+| 97 | [169. 多数元素](https://leetcode.cn/problems/majority-element/) | — |
+| 98 | [75. 颜色分类](https://leetcode.cn/problems/sort-colors/) | — |
+| 99 | [31. 下一个排列](https://leetcode.cn/problems/next-permutation/) | — |
+| 100 | [287. 寻找重复数](https://leetcode.cn/problems/find-the-duplicate-number/) | — |
+
+## 二、算法笔记
 
 ### 1. [LeetCode 4. 寻找两个正序数组的中位数](LeetCode4_寻找两个正序数组的中位数.md)
 
@@ -75,7 +182,7 @@
 
 **可复用经验：** 先通过问题分解和结构性质构造直观、易于证明的解法，再分析中间状态蕴含的信息，利用数学关系消除不必要的计算。
 
-## 二、通用算法设计思想
+## 三、通用算法设计思想
 
 ### 1. [IBP：基于状态和不变量驱动的算法设计](IBP_基于不变量驱动的算法设计.md)
 
@@ -88,7 +195,7 @@
 3. **状态迁移与实现**：先设计抽象状态迁移，再根据数据依赖推导具体操作顺序，必要时引入临时变量。
 4. **正确性证明**：证明初始化、不变量保持、算法终止及目标达成。
 
-## 三、算法基础知识
+## 四、算法基础知识
 
 ### 1. [算法复杂度与 Python 常用数据结构](算法复杂度与Python常用数据结构.md)
 
