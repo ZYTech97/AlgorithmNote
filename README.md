@@ -4,7 +4,7 @@
 
 ## 一、LeetCode 热题 100
 
-题目按 [LeetCode 热题 100 官方学习计划](https://leetcode.cn/studyplan/top-100-liked/) 的专题顺序排列。已完成笔记：**12/100**；`—` 表示尚无解题笔记。
+题目按 [LeetCode 热题 100 官方学习计划](https://leetcode.cn/studyplan/top-100-liked/) 的专题顺序排列。已完成笔记：**13/100**；`—` 表示尚无解题笔记。
 
 | 序号 | 题目（原题链接） | 解题笔记 |
 | ---: | --- | --- |
@@ -36,7 +36,7 @@
 | 26 | [142. 环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii/) | [查看笔记](LeetCode142_环形链表II.md) |
 | 27 | [21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/) | — |
 | 28 | [2. 两数相加](https://leetcode.cn/problems/add-two-numbers/) | — |
-| 29 | [19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) | — |
+| 29 | [19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) | [查看笔记](LeetCode19_删除链表的倒数第N个结点.md) |
 | 30 | [24. 两两交换链表中的节点](https://leetcode.cn/problems/swap-nodes-in-pairs/) | — |
 | 31 | [25. K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/) | — |
 | 32 | [138. 随机链表的复制](https://leetcode.cn/problems/copy-list-with-random-pointer/) | — |
@@ -181,6 +181,10 @@
 **核心思想：快慢指针 + Floyd 算法。** 利用快慢指针的相对运动检测环，再定位环入口。首先将问题分解为检测环、计算环长、定位入口三个子问题：利用环的周期性，计算环长后让两个指针相距一圈并同步移动，即可找到入口。进一步分析首次相遇点蕴含的距离关系，发现可以直接从头节点和相遇点同步移动找到入口，省去显式计算环长的步骤。
 
 **可复用经验：** 先通过问题分解和结构性质构造直观、易于证明的解法，再分析中间状态蕴含的信息，利用数学关系消除不必要的计算。
+
+### 13. [LeetCode 19. 删除链表的倒数第 N 个结点](LeetCode19_删除链表的倒数第N个结点.md)
+
+**核心思想：固定距离双指针。** 当目标位置与链表末尾存在固定距离关系时，可以通过双指针保持固定间距，利用一个指针的终止条件确定另一个指针的位置，避免显式计算链表长度。
 
 ## 三、通用算法设计思想
 
