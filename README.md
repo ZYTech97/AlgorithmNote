@@ -4,7 +4,7 @@
 
 ## 一、LeetCode 热题 100
 
-题目按 [LeetCode 热题 100 官方学习计划](https://leetcode.cn/studyplan/top-100-liked/) 的专题顺序排列。已完成笔记：**13/100**；`—` 表示尚无解题笔记。
+题目按 [LeetCode 热题 100 官方学习计划](https://leetcode.cn/studyplan/top-100-liked/) 的专题顺序排列。已完成笔记：**14/100**；`—` 表示尚无解题笔记。
 
 | 序号 | 题目（原题链接） | 解题笔记 |
 | ---: | --- | --- |
@@ -58,7 +58,7 @@
 | 48 | [437. 路径总和 III](https://leetcode.cn/problems/path-sum-iii/) | — |
 | 49 | [236. 二叉树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/) | — |
 | 50 | [124. 二叉树中的最大路径和](https://leetcode.cn/problems/binary-tree-maximum-path-sum/) | — |
-| 51 | [200. 岛屿数量](https://leetcode.cn/problems/number-of-islands/) | — |
+| 51 | [200. 岛屿数量](https://leetcode.cn/problems/number-of-islands/) | [查看笔记](LeetCode200_岛屿数量.md) |
 | 52 | [994. 腐烂的橘子](https://leetcode.cn/problems/rotting-oranges/) | — |
 | 53 | [207. 课程表](https://leetcode.cn/problems/course-schedule/) | — |
 | 54 | [208. 实现 Trie (前缀树)](https://leetcode.cn/problems/implement-trie-prefix-tree/) | — |
@@ -185,6 +185,10 @@
 ### 13. [LeetCode 19. 删除链表的倒数第 N 个结点](LeetCode19_删除链表的倒数第N个结点.md)
 
 **核心思想：固定距离双指针。** 当目标位置与链表末尾存在固定距离关系时，可以通过双指针保持固定间距，利用一个指针的终止条件确定另一个指针的位置，避免显式计算链表长度。
+
+### 14. [LeetCode 200. 岛屿数量](LeetCode200_岛屿数量.md)
+
+**核心思想：DFS 连通分量计数。** 每次从未访问陆地启动 DFS，标记同一个岛屿中的所有陆地，DFS 的启动次数即岛屿数量。采用入栈即标记避免重复访问，并通过原地标记省去额外的访问数组。
 
 ## 三、通用算法设计思想
 
