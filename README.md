@@ -4,7 +4,7 @@
 
 ## 一、LeetCode 热题 100
 
-题目按 [LeetCode 热题 100 官方学习计划](https://leetcode.cn/studyplan/top-100-liked/) 的专题顺序排列。已完成笔记：**16/100**；`—` 表示尚无解题笔记。
+题目按 [LeetCode 热题 100 官方学习计划](https://leetcode.cn/studyplan/top-100-liked/) 的专题顺序排列。已完成笔记：**17/100**；`—` 表示尚无解题笔记。
 
 | 序号 | 题目（原题链接） | 解题笔记 |
 | ---: | --- | --- |
@@ -67,7 +67,7 @@
 | 57 | [17. 电话号码的字母组合](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/) | — |
 | 58 | [39. 组合总和](https://leetcode.cn/problems/combination-sum/) | — |
 | 59 | [22. 括号生成](https://leetcode.cn/problems/generate-parentheses/) | — |
-| 60 | [79. 单词搜索](https://leetcode.cn/problems/word-search/) | — |
+| 60 | [79. 单词搜索](https://leetcode.cn/problems/word-search/) | [查看笔记](LeetCode79_单词搜索.md) |
 | 61 | [131. 分割回文串](https://leetcode.cn/problems/palindrome-partitioning/) | — |
 | 62 | [51. N 皇后](https://leetcode.cn/problems/n-queens/) | — |
 | 63 | [35. 搜索插入位置](https://leetcode.cn/problems/search-insert-position/) | — |
@@ -197,6 +197,10 @@
 ### 16. [LeetCode 207. 课程表](LeetCode207_课程表.md)
 
 **核心思想：DFS 有向环检测 + 搜索结果复用。** 将课程依赖关系转化为有向图，通过 DFS 判断是否存在环。朴素路径枚举存在重复搜索，通过三状态标记区分未访问、正在搜索和已完成的节点，实现环检测与结果复用，将时间复杂度优化至 $`O(V+E)`$。
+
+### 17. [LeetCode 79. 单词搜索](LeetCode79_单词搜索.md)
+
+**核心思想：DFS + 回溯。** 从候选起点出发沿上下左右搜索目标单词，使用原地标记保证同一条路径不重复访问单元格，递归结束后恢复状态，使不同搜索分支互不干扰。使用下标追踪匹配进度，避免字符串切片。
 
 ## 三、通用算法设计思想
 
