@@ -4,7 +4,7 @@
 
 ## 一、LeetCode 热题 100
 
-题目按 [LeetCode 热题 100 官方学习计划](https://leetcode.cn/studyplan/top-100-liked/) 的专题顺序排列。已完成笔记：**17/100**；`—` 表示尚无解题笔记。
+题目按 [LeetCode 热题 100 官方学习计划](https://leetcode.cn/studyplan/top-100-liked/) 的专题顺序排列。已完成笔记：**18/100**；`—` 表示尚无解题笔记。
 
 | 序号 | 题目（原题链接） | 解题笔记 |
 | ---: | --- | --- |
@@ -53,7 +53,7 @@
 | 43 | [98. 验证二叉搜索树](https://leetcode.cn/problems/validate-binary-search-tree/) | — |
 | 44 | [230. 二叉搜索树中第 K 小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-bst/) | — |
 | 45 | [199. 二叉树的右视图](https://leetcode.cn/problems/binary-tree-right-side-view/) | — |
-| 46 | [114. 二叉树展开为链表](https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/) | — |
+| 46 | [114. 二叉树展开为链表](https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/) | [查看笔记](LeetCode114_二叉树展开为链表.md) |
 | 47 | [105. 从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | — |
 | 48 | [437. 路径总和 III](https://leetcode.cn/problems/path-sum-iii/) | — |
 | 49 | [236. 二叉树的最近公共祖先](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/) | — |
@@ -201,6 +201,10 @@
 ### 17. [LeetCode 79. 单词搜索](LeetCode79_单词搜索.md)
 
 **核心思想：DFS + 回溯。** 从候选起点出发沿上下左右搜索目标单词，使用原地标记保证同一条路径不重复访问单元格，递归结束后恢复状态，使不同搜索分支互不干扰。使用下标追踪匹配进度，避免字符串切片。
+
+### 18. [LeetCode 114. 二叉树展开为链表](LeetCode114_二叉树展开为链表.md)
+
+**核心思想：递归拼接与 Morris 原地重连。** DFS 将左右子树展开为链表并返回尾节点；进一步利用前序遍历的结构性质，仅查找左子树沿 `right` 指针的最右节点作为安全连接位置，原地调整指针，避免递归栈。通过局部前序顺序保持与循环不变量证明正确性。
 
 ## 三、通用算法设计思想
 
