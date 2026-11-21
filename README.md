@@ -4,7 +4,7 @@
 
 ## 一、LeetCode 热题 100
 
-题目按 [LeetCode 热题 100 官方学习计划](https://leetcode.cn/studyplan/top-100-liked/) 的专题顺序排列。已完成笔记：**18/100**；`—` 表示尚无解题笔记。
+题目按 [LeetCode 热题 100 官方学习计划](https://leetcode.cn/studyplan/top-100-liked/) 的专题顺序排列。已完成笔记：**19/100**；`—` 表示尚无解题笔记。
 
 | 序号 | 题目（原题链接） | 解题笔记 |
 | ---: | --- | --- |
@@ -72,7 +72,7 @@
 | 62 | [51. N 皇后](https://leetcode.cn/problems/n-queens/) | — |
 | 63 | [35. 搜索插入位置](https://leetcode.cn/problems/search-insert-position/) | — |
 | 64 | [74. 搜索二维矩阵](https://leetcode.cn/problems/search-a-2d-matrix/) | — |
-| 65 | [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/) | — |
+| 65 | [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/) | [查看笔记](LeetCode34_在排序数组中查找元素的第一个和最后一个位置.md) |
 | 66 | [33. 搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array/) | — |
 | 67 | [153. 寻找旋转排序数组中的最小值](https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/) | — |
 | 68 | [4. 寻找两个正序数组的中位数](https://leetcode.cn/problems/median-of-two-sorted-arrays/) | [查看笔记](LeetCode4_寻找两个正序数组的中位数.md) |
@@ -205,6 +205,10 @@
 ### 18. [LeetCode 114. 二叉树展开为链表](LeetCode114_二叉树展开为链表.md)
 
 **核心思想：递归拼接与 Morris 原地重连。** DFS 将左右子树展开为链表并返回尾节点；进一步利用前序遍历的结构性质，仅查找左子树沿 `right` 指针的最右节点作为安全连接位置，原地调整指针，避免递归栈。通过局部前序顺序保持与循环不变量证明正确性。
+
+### 19. [LeetCode 34. 在排序数组中查找元素的第一个和最后一个位置](LeetCode34_在排序数组中查找元素的第一个和最后一个位置.md)
+
+**核心思想：两次二分查找统一为 lower_bound。** 分别寻找第一个大于等于 `target` 和 `target+1` 的位置，确定目标区间。通过 `left/right` 管理搜索范围、`pos` 显式记录最靠左的合法候选位置，并用循环不变量证明查找正确性。
 
 ## 三、通用算法设计思想
 
